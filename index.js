@@ -50,6 +50,9 @@ window.loadLeverJobs = function (options) {
   if (typeof options.departmentName !== 'undefined') {
       url += '&department=' + encodeURIComponent(options.departmentName);
   }
+  if (typeof options.locationName !== 'undefined') {
+      url += '&location=' + encodeURIComponent(options.locationName);
+  }
 
   //Create an object ordered by department and team
   function createJobs(responseData) {
