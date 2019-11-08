@@ -43,7 +43,13 @@ window.loadLeverJobs = function (options) {
   }
 
   // Adding the account name to the API URL
-  var url = 'https://api.lever.co/v0/postings/' + options.accountName + '?group=team&mode=json';
+  var url = 'https://api.lever.co/v0/postings/' + options.accountName + '?&group=team&mode=json';
+  if (typeof options.teamName !== 'undefined') {
+      url += '&team=' + encodeURIComponent(options.teamName);
+  }
+  if (typeof options.departmentName !== 'undefined') {
+      url += '&department=' + encodeURIComponent(options.departmentName);
+  }
 
   //Create an object ordered by department and team
   function createJobs(responseData) {
